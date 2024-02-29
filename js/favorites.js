@@ -28,7 +28,7 @@ export class Favorites {
     // tente executar esse código:
     try {
       // verifica se o usuário já existe (devolve um obj):
-      const userExists = this.entries.find((entry) => entry.login === username);
+      const userExists = this.entries.find((entry) => entry.login.toLowerCase() === username.toLowerCase());
 
       //console.log(userExists);
 
