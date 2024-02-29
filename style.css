@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --ff-primary: "Poppins", sans-serif;
+  --text-color: #303030;
+
+  --hue: 194;
+  --primary-color: hsl(var(--hue), 100%, 63%); /* hue, saturação, luminancia */
+}
+
+body {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background-color: rgb(233, 245, 245);
+}
+
+body * {
+  font-family: var(--ff-primary);
+}
+
+/* SCREEN READER: classe flexível que esconde os elementos da tela, deixando-os exclusivamente visíveis p/ os leitores de tela que ajuda na acessibilidade p/ deficientes visuais */
+.sr-only {
+  position: absolute;
+  width: 1px; /* mín possível. obs: use px msm pois .rem ficará dois tracinhos */
+  height: 1px; /* mín possível */
+  padding: 0; /* Apesar de definido no reset, aqui só p/reforçar */
+  margin: -1px; /* p/ garantir q width e height, msm pequenos não aparecem na viewport */
+  overflow: hidden; /* não permite o transbordamento dos elementos */
+  clip: rect(
+    0,
+    0,
+    0,
+    0
+  ); /* Cria um retângulo com 0 de largura e altura p/ forçar a caixa ser inexistente */
+  white-space: nowrap; /* evita a quebra de linha dos textos*/
+  border-width: 0; /* borda zero! */
+}
+
+#app {
+  max-width: 50rem;
+  margin: 0 auto; /* macete para alinhar ao centro */
+  padding: 2rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 2.5rem 0;
+}
+
+header h1 {
+  font-size: 2 rem;
+  text-transform: uppercase;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  height: 3.2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem 0 0 0.4rem;
+  padding: o 0.8rem;
+}
+
+.search button {
+  background-color: var(--primary-color);
+  border-radius: 0 0.4rem 0.4rem 0;
+  height: 3.2rem;
+  border: none;
+  padding: 0 1rem;
+
+  cursor: pointer;
+}
+
+.search button:hover {
+  filter: brightness(1.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Elimina os espaços entre os quadradinhos */
+
+  box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3); /* Sombra: posição x posição y blur spacing. O negativo deixa o início atrás do elemento. */
+}
+
+table * {
+  width: 100%;
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+
+table th {
+  background: var(--primary-color);
+  text-align: left;
+  font-weight: normal;
+  padding: 1.5rem;
+}
+
+/* pseudo classes */
+table th:first-child {
+  /* 1º filho q é a 1º coluna */
+  border-top-left-radius: 0.4rem;
+}
+
+table th:last-child {
+  /* último filho q é a última coluna */
+  border-top-right-radius: 0.4rem;
+}
+
+table tr {
+  background-color: #eee;
+}
+
+table tr:nth-child(odd) {
+  /* pegando as linhas ímpares */
+  background-color: #ddd;
+}
+
+table td {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+td.user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+td.user img {
+  width: 5rem;
+  height: 5rem;
+
+  object-fit: cover; /* P/ casos em q as imgs tenham a necessidade de se encaixar nas medidas acima*/
+  border-radius: 50%; /* macete p/ arredondar a img! */
+}
+
+td.user a {
+  text-decoration: none;
+}
+
+td.user p {
+  font-weight: bold;
+}
+
+td .remove {
+  background: none;
+  border: none;
+
+  color: red;
+  cursor: pointer;
+}
